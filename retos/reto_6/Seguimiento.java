@@ -40,6 +40,21 @@ public class Seguimiento {
             if (prestamo.getLibro().getCodigo().equals(codigoLibro)){
                 System.out.println("Socio: "+ prestamo.getSocio().getNombreCompleto() + "Fecha adquisicion: "+ prestamo.getFecha() + "Fecha devolucion: " + prestamo.getFechaDevolucion());
             }
+        // Falta agregar logica para ver si tiene un prestamo activo o no
+        }
+    }
+
+    public void prestamosSocio(int numeroSocio){
+        for (Prestamo prestamo : prestamos) {
+            if (prestamo.getSocio().getNumero()==(numeroSocio)){
+                System.out.println("Socio: "+ prestamo.getSocio().getNombreCompleto() + "Libro " + prestamo.getLibro().getTitulo() + "Fecha adquisicion: "+ prestamo.getFecha());
+                if (prestamo.getFechaDevolucion() == null) {
+                    System.out.println("Este préstamo está activo (sin fecha de devolución).");
+                } else {
+                    System.out.println("Fecha de devolución: " + prestamo.getFechaDevolucion());
+                }
+            }
+            // Falta agregar logica por si no tiene prestamos el socio aun        
         }
     }
 
